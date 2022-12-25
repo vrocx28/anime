@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="center">
+    {% include 'messages.html' %}
+            <form action="{% url 'add_anime/' %}" method="POST" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-12 mb-0">
+                        {{ form.gogoanime_url|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.no_of_episodes|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.status|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12 mb-0">
+                        {{ form.other_name|as_crispy_field }}
+                    </div>
+                </div>
+                {{ form.anime_name.as_hidden }}
+                {{ form.gogoanime_id.as_hidden }}
+                {{ form.summary.as_hidden }}
+
+                <div class="form-row">
+                    <div class="form-group col-md-12 text-center mb-0">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </div>
+
+            </form>
+ 
+
+</div>
+{% endblock %}
