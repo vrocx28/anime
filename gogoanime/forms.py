@@ -4,7 +4,7 @@ from .models import Anime_All
 
 
 STATUS_CHOICES = (
-    ("", "Select"),
+    ("", "Status"),
     ("Complete", "Complete"),
     ("Ongoing", "Ongoing"),
     ("Upcoming", "Upcoming"),
@@ -34,18 +34,17 @@ class AddAnime(ModelForm):
         widget=forms.TextInput(),
         required=False,
     )
-    # Latest_Episode = models.IntegerField(null=False)
     status = forms.CharField(
         widget=forms.Select(
             choices=STATUS_CHOICES,
         ),
         label="",
     )
-    other_name = forms.CharField(
-        widget=forms.TextInput(attrs={"placeholder": "Other Name"}),
-        max_length=255,
-        label="",
-    )
+    # other_name = forms.CharField(
+    #     widget=forms.TextInput(attrs={"placeholder": "Other Name"}),
+    #     max_length=255,
+    #     label="",
+    # )
 
     class Meta:
         model = Anime_All
@@ -55,7 +54,7 @@ class AddAnime(ModelForm):
             "gogoanime_id",
             "no_of_episodes",
             "status",
-            "other_name",
+            # "other_name",
             "gogoanime_id",
             "summary",
         ] 

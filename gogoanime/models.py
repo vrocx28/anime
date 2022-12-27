@@ -22,10 +22,9 @@ class Anime_All(TimeStampedModel):
     gogoanime_id = models.IntegerField(null=False, unique=True)
     no_of_episodes = models.IntegerField(null=False)
     summary = models.TextField(blank=True, null=True)
-    # image = models.ImageField(upload_to='media/anime_img', blank=True)
-    # Latest_Episode = models.IntegerField(null=False)
+    image = models.ImageField(upload_to='media/anime_img', blank=True)
     status = models.CharField(max_length=20, choices = STATUS_CHOICES)
-    other_name = models.CharField(max_length=255, null=False, blank=False)
+    # other_name = models.CharField(max_length=255, null=False, blank=False)
 
     def __str__(self):
         return self.anime_name

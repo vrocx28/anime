@@ -25,7 +25,7 @@ def get_anime_meta_data(ani_url):
     url = f"{base_url}/category/{ani_url}"
     response = get_res(url)
     html_res = html.fromstring(response.text)
-    anime_name = html_res.xpath('//meta[@name="keywords"]/@content')[0].strip()
+    anime_name = html_res.xpath('//div[@class="anime_info_body_bg"]/h1/text()')[0].strip()
     anime_id = html_res.xpath('//input[@id="movie_id"]/@value')[0].strip()
     try:
         summary = re.findall(r"Plot Summary: </span>(.*?)</p>", response.text)[0]
@@ -68,8 +68,8 @@ def all_anime(request):
     return render(request, template_name, context)
 
 
-def anime_info(request, anime_id):
-    anime_info = Anime_All.objects.get(pk=anime_id)
+def anime_info(request, gogoanime_url):
+    anime_info = Anime_All.objects.get(gogoanime_url=gogoanime_url)
     context = {"anime_info": anime_info}
     template_name = "anime_info.html"
     return render(request, template_name, context)
