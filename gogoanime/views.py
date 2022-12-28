@@ -10,7 +10,7 @@ from lxml import html
 from .forms import AddAnime
 from .models import Anime_All
 
-# Create your views here.s
+# Create your views here.
 
 
 def get_res(url):
@@ -73,7 +73,6 @@ def anime_info(request, gogoanime_url):
     context = {"anime_info": anime_info}
     template_name = "anime_info.html"
     return render(request, template_name, context)
-    pass
 
 
 def download_all_eps(request):
