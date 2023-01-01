@@ -8,10 +8,11 @@ class GogoanimeAdmin(admin.ModelAdmin):
     list_display = [
         "id",
         "anime_name",
-        "gogoanime_url",
-        "gogoanime_id",
         "no_of_episodes",
         "status",
+        "image",
+        "gogoanime_url",
+        "gogoanime_id",
         # "other_name",
         "summary",
     ]

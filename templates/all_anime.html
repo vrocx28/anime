@@ -6,7 +6,7 @@
         {% for Anime in all_anime %}
         <div class="col card-col col-md-2">
             <a class="card-link" href="{{ Anime.gogoanime_url }}">
-                <img src="{% static 'img/test.jpg' %}" alt="Card image cap" style="width:100%; height:10rem"></a>
+                <img src="{{Anime.image.url}}" alt="Card image cap" style="width:100%; height:10rem"></a>
             <a class="card-link" href="{{ Anime.gogoanime_url }}">
                 <h5 class="card-title truncate" title="{{ Anime.anime_name }}">{{ Anime.anime_name }}</h5>
             </a>
